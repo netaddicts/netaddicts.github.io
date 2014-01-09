@@ -2,7 +2,7 @@ title:            Site Title
 tagline:          A short tagline
 description:      Describe your website.
 # Your site's domain goes here. Leave localhost server or blank when working locally.
-url:              http://netaddicts.be
+url:              http://www.netaddicts.be
 
 # Owner/author information
 owner:
@@ -11,9 +11,9 @@ owner:
   bio:            "EAT SLEEP UMBRACO REPEAT"
   email:          dirk@netaddicts.be
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter: @netaddicts       
+  twitter:        
   facebook:       
-  github: netaddicts        
+  github:         
   linkedin:       
   instagram:      
   lastfm:         
