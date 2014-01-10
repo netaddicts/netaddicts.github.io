@@ -7,7 +7,7 @@ url:              http://www.netaddicts.be
 # Owner/author information
 owner:
   name:           Dirk De Grave
-  avatar:         bio-photo.jpg
+  avatar:         me.jpg
   bio:            "EAT SLEEP UMBRACO REPEAT"
   email:          dirk@netaddicts.be
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
@@ -32,7 +32,7 @@ bing_verify:
 links:
   - title: About
     url: /about/
-  - title: Articles
+  - title: Blog Archive
     url: /articles/
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
