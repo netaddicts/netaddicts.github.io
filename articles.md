@@ -1,11 +1,7 @@
 ---
 layout: post-index
 permalink: /articles/
-title: Articles
-tagline: A List of Posts
-tags: [blog, graphic design]
-image:
-  feature: background/grey.png
-  credit: 
-  creditlink: 
+title: A complete archive of all blog posts
+tagline:
+tags: [blog]
 ---
