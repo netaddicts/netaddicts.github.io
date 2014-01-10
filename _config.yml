@@ -32,8 +32,6 @@ bing_verify:
 links:
   - title: Home
     url: /
-  - title: About
-    url: /about/
   - title: Blog Archive
     url: /articles/
 
