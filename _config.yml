@@ -11,9 +11,9 @@ owner:
   bio:            "EAT SLEEP UMBRACO REPEAT"
   email:          dirk@netaddicts.be
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter:        
+  twitter:        https://twitter.com/netaddicts
   facebook:       
-  github:         
+  github:         https://github.com/netaddicts/
   linkedin:       
   instagram:      
   lastfm:         
