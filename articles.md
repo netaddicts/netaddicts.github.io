@@ -4,4 +4,8 @@ permalink: /articles/
 title: Articles
 tagline: A List of Posts
 tags: [blog, graphic design]
+image:
+  feature: background/grey.png
+  credit: 
+  creditlink: 
 ---
