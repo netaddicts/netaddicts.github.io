@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Umbraco v7 XPathDropdownList/Google Maps support
-description: "A quick intro on how to enable the Google Maps datatype in Umbraco v7"
+description: "A quick intro on how to build a simplified version of the XPathDropdownList and enable the Google Maps datatype in Umbraco v7"
 category: articles
 tags: [umbraco, v7, propertyeditors]
 ---
