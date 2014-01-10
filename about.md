@@ -6,7 +6,7 @@ tagline: Minimal Mistakes, a Jekyll Theme
 tags: [about, Jekyll, theme, responsive]
 modified: 9-9-2013
 image:
-  feature: background/yellow.png
+  feature: background/grey.png
   credit: 
   creditlink: 
 ---
