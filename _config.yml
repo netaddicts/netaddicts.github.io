@@ -1,6 +1,6 @@
-title:            Site Title
-tagline:          A short tagline
-description:      Describe your website.
+title:            
+tagline:          
+description:      
 # Your site's domain goes here. Leave localhost server or blank when working locally.
 url:              http://www.netaddicts.be
 
@@ -34,11 +34,6 @@ links:
     url: /about/
   - title: Articles
     url: /articles/
-  - title: Theme Setup
-    url: /theme-setup/
-  - title: Made Mistakes
-    url: http://mademistakes.com
-    external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Europe/Brussels
