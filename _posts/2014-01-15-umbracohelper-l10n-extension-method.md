@@ -17,7 +17,7 @@ I added a few more functional requirements:
 * Only create dictionary items in debug mode (or development mode!).
 * Build a hierarchical structure to avoid a looooooong flat list of dictionary items in the backend.
 
-{% highlight csharp linenos %}
+{% highlight html linenos %}
 {% raw %}
 using System;
 using System.Linq;
@@ -117,7 +117,7 @@ Let's explain the usage of the extension method. Assuming I'm editing a template
 
 It'll only take a single frontend hit of any node in your Umbraco installation associated with this template to create a hierarchical structure of dictionary items.
 
-{% highlight %}
+{% highlight html linenos %}
 {% raw %}
 Project
 	Project.Views
