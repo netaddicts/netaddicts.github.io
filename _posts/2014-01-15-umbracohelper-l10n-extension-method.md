@@ -11,7 +11,7 @@ Let's be honest, creating dictionary items in Umbraco is not the most sexy and i
 As I wanted to use this extension method from any context, whether in a view (or template if you prefer) or a controller... I went ahead and wrote an extension method on the <code>UmbracoHelper</code> object, which is almost always available.
 
 I added a few more functional requirements:
-
+ 
 * I want to be able to derive usage of a dictionary item based on it's key (eg. Project.Views.TemplateX.KeyY expresses the use of 'KeyX' dictionary item in the context of template 'TemplateY'.
 * I want translations to be created for each of the installed languages.
 * Only create dictionary items in debug mode (or development mode!).
