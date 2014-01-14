@@ -14,15 +14,15 @@ However, 2 important things were missing in our setup. First one was the XPathDr
 
 Sounds like a fun way to learn about building property editors, right? Yup!
 
-For this sample to work, I'm assuming you've got at least a v7 Umbraco installation with any of a starter kit selected upon installation. If you don't have a starter kit installed, make sure to replace "umbNewsItem" document type alias with any of the available document types in your local installation.
+For this sample to work, I'm assuming you've got at least a v7 Umbraco installation with any of a starter kit selected upon installation. If you don't have a starter kit installed, make sure to replace <code>"umbNewsItem"</code> document type alias with any of the available document types in your local installation.
 
 ##XPathDropdownList aka Docr
 
-Actually, I didn't need a fully fledged XPathDropdownList datatype, but just needed a datatype that could list all child documents of a specific node in the tree. Here's my initial package.manifest file which I've put in ~/App_Plugins/Netaddicts folder
+Actually, I didn't need a fully fledged XPathDropdownList datatype, but just needed a datatype that could list all child documents of a specific node in the tree. Here's my initial <code>package.manifest</code> file which I've put in <code>~/App_Plugins/Netaddicts</code> folder
 
 {% highlight html linenos %}
 {% raw %}
-{
+{>>
   propertyEditors:
   [ 
     {
@@ -43,11 +43,11 @@ Actually, I didn't need a fully fledged XPathDropdownList datatype, but just nee
 {% endraw %}
 {% endhighlight %}
 
-Don't put your manifest file in a subfolder of ~/App_Plugins/Netaddicts/ (eg. ~/App_Plugins/Netaddicts/Docr) which I did initially, but was having troubles having Umbraco pick up this manifest file on application restart. Ironically, if I would have read the documentation on [package manifest file](http://umbraco.github.io/Belle/#/tutorials/manifest), I wouldn't have been bitten by this.
+Don't put your manifest file in a subfolder of <code>~/App_Plugins/Netaddicts/</code> (eg. <code>~/App_Plugins/Netaddicts/Docr</code>) which I did initially, but was having troubles having Umbraco pick up this manifest file on application restart. Ironically, if I would have read the documentation on [package manifest file](http://umbraco.github.io/Belle/#/tutorials/manifest), I wouldn't have been bitten by this.
 
 So, now I just need three more files...
 
-Our first file Docr.html will be our view which should just be a dropdown list holding all child nodes of a specific node.
+Our first file <code>Docr.html</code> will be our view which should just be a dropdown list holding all child nodes of a specific node.
 
 {% highlight html linenos %}
 {% raw %}
@@ -57,7 +57,7 @@ Our first file Docr.html will be our view which should just be a dropdown list h
 {% endraw %}
 {% endhighlight %}
 
-Javascript file Docr.controller.js will be responsible to initializing dropdown list with documents fetched from Umbraco content tree. Syntax of the Angular ngOptions directive may seem a bit strange, and at first hard to understand. But there's [good documentation on this](http://docs.angularjs.org/api/ng.directive:select) as well.
+Javascript file <code>Docr.controller.js</code> will be responsible to initializing dropdown list with documents fetched from Umbraco content tree. Syntax of the Angular ngOptions directive may seem a bit strange, and at first hard to understand. But there's [good documentation on this](http://docs.angularjs.org/api/ng.directive:select) as well.
 
 {% highlight html linenos %}
 {% raw %}
@@ -77,12 +77,12 @@ angular.module("umbraco").controller("Netaddicts.DocrController", function ($sco
 
 Don't forget to replace umbNewsItem with another document type alias if you've not installed a starter kit!!
 
-Also notice how we inject docrResource and notificationService into our controller. AngularJs uses a technique called [Dependency Injection](http://docs.angularjs.org/guide/di) and uses an [injector](http://docs.angularjs.org/api/angular.injector) to manage the responsibilities of dependency creation.
+Also notice how we inject <code>docrResource</code> and <code>notificationService</code> into our controller. AngularJs uses a technique called [Dependency Injection](http://docs.angularjs.org/guide/di) and uses an [injector](http://docs.angularjs.org/api/angular.injector) to manage the responsibilities of dependency creation.
 Don't worry if this sounds too complicated, just remember that whenever you need to use a service or resource, you can just include those in your function argument list when declaring your controller.
 
-In our previous code snippet above, we're injecting Umbraco's notificationsService, used to alert if something goes wrong when fetching data from the Umbraco system using our own custom resource docrResource.
+In our previous code snippet above, we're injecting Umbraco's <code>notificationsService</code>, used to alert if something goes wrong when fetching data from the Umbraco system using our own custom resource <code>docrResource</code>.
 
-Let's take a look at our Docr.resource.js file.
+Let's take a look at our <code>Docr.resource.js</code> file.
 
 {% highlight html linenos %}
 {% raw %}
@@ -96,9 +96,9 @@ angular.module('umbraco.resources').factory('docrResource', function ($q, $http)
 {% endraw %}
 {% endhighlight %}
 
-Above code snippet adds the docrResource to the umbraco.resources module and uses the standard AngularJs factory pattern, so we can inject this resource into any of our controllers.
+Above code snippet adds the docrResource to the <code>umbraco.resources</code> module and uses the standard AngularJs factory pattern, so we can inject this resource into any of our controllers.
 
-Next up: A bit of C# coding to actually fetch the documents from Umbraco. Either create a simple C# class file and drop it into the ~/App_Code folder or add your class to an existing project and compile into assembly.
+Next up: A bit of C# coding to actually fetch the documents from Umbraco. Either create a simple C# class file and drop it into the <code>~/App_Code</code> folder or add your class to an existing project and compile into assembly.
 
 {% highlight html linenos %}
 {% raw %}
@@ -132,16 +132,16 @@ namespace Web.Controllers.Api
 {% endraw %}
 {% endhighlight %}
 
-Don't forget to add the PluginController attribute so Umbraco can match mvc route /Netaddicts/DocrApi/GetDocuments to your controller action GetDocuments().
+Don't forget to add the <code>PluginController</code> attribute so Umbraco can match mvc route <code>/Netaddicts/DocrApi/GetDocuments</code> to your controller action <code>GetDocuments()</code>.
 Also notice we're returning a IEnumerable<DocumentInfo> instead of returning an object of type IEnumerable<IContent> just because you can't serialize an interface! Period!
 
 If all files are in place, all you have to do next is go to the Developer section in your umbraco installation, create a new datatype and select "Netaddicts Document Selection" from the list of available types, and add this new datatype to an already existing document type.
 
 Of course, this wasn't yet exactly what I had in mind, but this sample code got me started and made sure all components were in place. All I had to do next was actually fetching data from a specific node in the content tree instead of fetching documents of a specific document type. Enter "Prevalue Editor".
 
-It's always a good idea to take a look at what's already existing. After all, all I wanted was an option to set a "root" node, and only list child nodes of this specific node. And Umbraco comes with quite a few prevalue editors out of the box. For a complete list of prevalue editors, browse the /Umbraco/Views/Prevalueeditors folder in your installation. I will be using the "treepicker" prevalue editor to allow me to select a "root" node.
+It's always a good idea to take a look at what's already existing. After all, all I wanted was an option to set a "root" node, and only list child nodes of this specific node. And Umbraco comes with quite a few prevalue editors out of the box. For a complete list of prevalue editors, browse the <code>/Umbraco/Views/Prevalueeditors</code> folder in your installation. I will be using the <code>"treepicker"</code> prevalue editor to allow me to select a "root" node.
 
-A small change to our package.manifest file is required...
+A small change to our <code>package.manifest</code> file is required...
 
 {% highlight html linenos %}
 {% raw %}
@@ -234,7 +234,7 @@ angular.module("umbraco").controller("Netaddicts.DocrController", function ($sco
 {% endraw %}
 {% endhighlight %}
 
-Notice how we're using the selected "root" node $scope.model.config.rootNode to fetch data using the getChildren() function. "rootNode" is the key we've set in the manifest file.
+Notice how we're using the selected "root" node <code>$scope.model.config.rootNode</code> to fetch data using the <code>getChildren()</code> function. <code>"rootNode"</code> is the key we've set in the manifest file.
 You should now be able to create multiple datatypes based on the same property editor, each fetching child nodes from a different root node.
 
 Happy property editing.
