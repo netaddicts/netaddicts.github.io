@@ -17,7 +17,7 @@ I added a few more functional requirements:
 * Only create dictionary items in debug mode (or development mode!).
 * Build a hierarchical structure to avoid a looooooong flat list of dictionary items in the backend.
 
-{% highlight html linenos %}
+{% highlight c# linenos %}
 {% raw %}
 using System;
 using System.Linq;
