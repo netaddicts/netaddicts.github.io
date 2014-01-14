@@ -126,7 +126,7 @@ Project
 {% endraw %}
 {% endhighlight %}
 
-But at least, I will have created translations for each of the installed languages. So, for example, if I was working on a nl-BE and fr-BE multilingual site, our extension method would have created two translations for our key Project.Views.RegisterPage.Title in both Dutch and French
+But at least, I will have created translations for each of the installed languages. So, for example, if I was working on a nl-BE and fr-BE multilingual site, our extension method would have created two translations for our key Project.Views.RegisterPage.Title in both Dutch and French. Also, translations will have a "[nl-BE]" or "[fr-BE]" prefix, so it's easy to find out what items need translation.
 
 Just a little catch: Make sure you've got your culture set before you start using the extension method, otherwise your dictionary items won't be created!
 
