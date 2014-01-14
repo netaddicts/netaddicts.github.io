@@ -20,7 +20,7 @@ For this sample to work, I'm assuming you've got at least a v7 Umbraco installat
 
 Actually, I didn't need a fully fledged XPathDropdownList datatype, but just needed a datatype that could list all child documents of a specific node in the tree. Here's my initial <code>package.manifest</code> file which I've put in <code>~/App_Plugins/Netaddicts</code> folder
 
-{% highlight html linenos %}
+{% highlight javascript linenos %}
 {% raw %}
 {
 	propertyEditors:
@@ -59,7 +59,7 @@ Our first file <code>Docr.html</code> will be our view which should just be a dr
 
 Javascript file <code>Docr.controller.js</code> will be responsible to initializing dropdown list with documents fetched from Umbraco content tree. Syntax of the Angular ngOptions directive may seem a bit strange, and at first hard to understand. But there's [good documentation on this](http://docs.angularjs.org/api/ng.directive:select) as well.
 
-{% highlight html linenos %}
+{% highlight javascript linenos %}
 {% raw %}
 angular.module("umbraco").controller("Netaddicts.DocrController", function ($scope, docrResource, notificationsService) {
 	
@@ -84,7 +84,7 @@ In our previous code snippet above, we're injecting Umbraco's <code>notification
 
 Let's take a look at our <code>Docr.resource.js</code> file.
 
-{% highlight html linenos %}
+{% highlight javascript linenos %}
 {% raw %}
 angular.module('umbraco.resources').factory('docrResource', function ($q, $http) {
 	return {
@@ -100,7 +100,7 @@ Above code snippet adds the docrResource to the <code>umbraco.resources</code> m
 
 Next up: A bit of C# coding to actually fetch the documents from Umbraco. Either create a simple C# class file and drop it into the <code>~/App_Code</code> folder or add your class to an existing project and compile into assembly.
 
-{% highlight html linenos %}
+{% highlight csharp linenos %}
 {% raw %}
 using System.Collections.Generic;
 using System.Globalization;
@@ -143,7 +143,7 @@ It's always a good idea to take a look at what's already existing. After all, al
 
 A small change to our <code>package.manifest</code> file is required...
 
-{% highlight html linenos %}
+{% highlight javascript linenos %}
 {% raw %}
 {
 	propertyEditors:
@@ -180,7 +180,7 @@ A small change to our <code>package.manifest</code> file is required...
 
 Add a new controller action to fetch the data
 
-{% highlight html linenos %}
+{% highlight csharp linenos %}
 {% raw %}
 public IEnumerable<DocumentInfo> GetChildDocuments(int rootNode)
 {
@@ -194,7 +194,7 @@ public IEnumerable<DocumentInfo> GetChildDocuments(int rootNode)
 
 Make a minor modification to our resource javascript file
 
-{% highlight html linenos %}
+{% highlight javascript linenos %}
 {% raw %}
 angular.module('umbraco.resources').factory('docrResource', function ($q, $http) {
 	return {
@@ -211,7 +211,7 @@ angular.module('umbraco.resources').factory('docrResource', function ($q, $http)
 
 And, lastly, change our controller javascript file
 
-{% highlight html linenos %}
+{% highlight javascript linenos %}
 {% raw %}
 angular.module("umbraco").controller("Netaddicts.DocrController", function ($scope, docrResource, notificationsService) {
 
