@@ -22,23 +22,23 @@ Actually, I didn't need a fully fledged XPathDropdownList datatype, but just nee
 
 {% highlight html linenos %}
 {% raw %}
-{>>
-  propertyEditors:
-  [ 
-    {
-      alias: "Netaddicts.Docr",
-      name: "Netaddicts Document Selection",
-      editor:  
-      {
-        view: "~/App_Plugins/Netaddicts/Docr/Docr.html"
-      }
-    } 
-  ],
-  javascript:
-  [
-    "~/App_Plugins/Netaddicts/Docr/Docr.controller.js",
-    "~/App_Plugins/Netaddicts/Docr/Docr.resources.js"
-  ]
+{
+	propertyEditors:
+	[ 
+		{
+			alias: "Netaddicts.Docr",
+			name: "Netaddicts Document Selection",
+			editor:
+			{
+				view: "~/App_Plugins/Netaddicts/Docr/Docr.html"
+			}
+		}
+	],
+	javascript:
+	[
+		"~/App_Plugins/Netaddicts/Docr/Docr.controller.js",
+		"~/App_Plugins/Netaddicts/Docr/Docr.resources.js"
+	]
 }
 {% endraw %}
 {% endhighlight %}
@@ -146,34 +146,34 @@ A small change to our <code>package.manifest</code> file is required...
 {% highlight html linenos %}
 {% raw %}
 {
-  propertyEditors:
-  [ 
-    {
-      alias: "Netaddicts.Docr",
-      name: "Netaddicts Document Selection",
-      editor:  
-      {
-        view: "~/App_Plugins/Netaddicts/Docr/Docr.html"
-      },
-	  prevalues: 
-	  {
-		fields: 
-		[
-		  {
-		    label: "Root content",
-			description: "Select root content node",
-			key: "rootNode",
-			view: "treepicker"
-		  }
-		]
-	  }
-    } 
-  ],
-  javascript:  
-  [
-    "~/App_Plugins/Netaddicts/Docr/Docr.controller.js",
-    "~/App_Plugins/Netaddicts/Docr/Docr.resources.js",
-  ]
+	propertyEditors:
+	[
+		{
+			alias: "Netaddicts.Docr",
+			name: "Netaddicts Document Selection",
+			editor:
+			{
+				view: "~/App_Plugins/Netaddicts/Docr/Docr.html"
+			},
+			prevalues: 
+			{
+				fields: 
+				[
+					{
+						label: "Root content",
+						description: "Select root content node",
+						key: "rootNode",
+						view: "treepicker"
+					}
+				]
+			}
+		} 
+	],
+	javascript: 
+	[
+		"~/App_Plugins/Netaddicts/Docr/Docr.controller.js",
+		"~/App_Plugins/Netaddicts/Docr/Docr.resources.js",
+	]
 }
 {% endraw %}
 {% endhighlight %}
