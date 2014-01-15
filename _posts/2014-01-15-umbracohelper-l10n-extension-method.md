@@ -117,24 +117,19 @@ Let's explain the usage of the extension method. Assuming I'm editing a template
 
 It'll only take a single frontend hit of any node in your Umbraco installation associated with this template to create a hierarchical structure of dictionary items.
 
-{% highlight html linenos %}
-{% raw %}
-Project
-	Project.Views
-		Project.Views.RegisterPage
-			Project.Views.RegisterPage.Title
-{% endraw %}
-{% endhighlight %}
+![Hierarchical dictionary items](/images/posts/dictionary-items-backend.png)
 
-But at least, I will have created translations for each of the installed languages. So, for example, if I was working on a nl-BE and fr-BE multilingual site, our extension method would have created two translations for our key Project.Views.RegisterPage.Title in both Dutch and French. Also, translations will have a "[nl-BE]" or "[fr-BE]" prefix, so it's easy to find out what items need translation.
+But at least, I will have created translations for each of the installed languages. So, for example, if I was working on a nl-BE and fr-BE multilingual site, our extension method would have created two translations for our key Project.Views.RegisterPage.Title in both Dutch and French. Also, translations will have a "[nl-BE]" or "[fr-BE]" prefix, so it's easy to find out what items need translation in your frontend.
 
-Just a little catch: Make sure you've got your culture set before you start using the extension method, otherwise your dictionary items won't be created!
+Just a little catch: Make sure you've got your culture set **before** you start using the extension method, otherwise your dictionary items won't be created!
 
-![Setting cuture](/images/posts/culture-and-hostnames-l10n.png)
+![Setting culture](/images/posts/culture-and-hostnames-l10n.png)
 
 Can we make it better? Yes, we probably can... Here's a list of things which still annoy me:
 
 * Dictionary keys are strings and therefore error prone. Hard to change a key, unless you correct your typo and browse the same page again to create the corresponding dictionary items.
-* How about "General" translations? A submit button is supposed to be set to the same text throughout the entire site. My hierarchical structure does allow for that, but you'll lose contextual info because your key won't be named according to it's use.
+* How about "General" translations? A submit button is supposed to be set to the same text throughout the entire site. My hierarchical structure does allow for that, but what would you use as compound dictionary key?.
+* You need to hit a page at least once to create your dictionary items. Guess this isn't such a big deal, as you'd probably have to run any page at least one time to verify whether everything works as expected.
+* It **may** be hard for a non developer to find the key they're looking for to translate...
 
 I'm also very looking forward on how other people are dealing with multilingual sites and dictionary items! So please comment if you know better or other implementations.
