@@ -294,7 +294,7 @@ Changes in <code>umbracoSettings.config</code>
 
 * Add <code>/views</code> folder in <code>scriptFolderPath</code> tag
 * Add <code>cshtml</code> file type in <code>scriptFileTypes</code> tag
-* Add extra tag <code>enableTemplateFolders</code> with value true under <code>templates</code> tag
+* Add extra tag <code>enableTemplateFolders</code> with value <code>true</code> under <code>templates</code> tag
 
 {% highlight xml linenos %}
 {% raw %}
@@ -321,7 +321,7 @@ Changes in <code>umbracoSettings.config</code>
 
 Changes in <code>web.config</code>:
 
-* Add a new application settings <code>umbracoMasterPagesPath</code>
+* Add a new application settings <code>umbracoMasterPagesPath</code> with value <code>~/Views</code>
 
 {% highlight xml linenos %}
 {% raw %}
