@@ -293,6 +293,7 @@ And then I made some configuration changes to both <code>umbracoSettings.config<
 Changes in <code>umbracoSettings.config</code>
 
 * Add <code>/views</code> folder in <code>scriptFolderPath</code> tag
+* Add <code>cshtml</code> file type in <code>scriptFileTypes</code> tag
 * Add extra tag <code>enableTemplateFolders</code> with value true under <code>templates</code> tag
 
 {% highlight xml linenos %}
