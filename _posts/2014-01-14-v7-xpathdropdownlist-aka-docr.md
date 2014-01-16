@@ -137,7 +137,7 @@ namespace Web.Controllers.Api
 {% endhighlight %}
 
 Don't forget to add the <code>PluginController</code> attribute so Umbraco can match mvc route <code>/Netaddicts/DocrApi/GetDocuments</code> to your controller action <code>GetDocuments()</code>.
-Also notice we're returning a <code>IEnumerable`<DocumentInfo>`</code> instead of returning an object of type <code>IEnumerable`<IContent>`</code> just because you can't serialize an interface! Period!
+Also notice we're returning a `IEnumerable<DocumentInfo>` instead of returning an object of type `IEnumerable<IContent>` just because you can't serialize an interface! Period!
 
 If all files are in place, all you have to do next is go to the Developer section in your umbraco installation, create a new datatype and select "Netaddicts Document Selection" from the list of available types, and add this new datatype to an already existing document type.
 
