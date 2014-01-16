@@ -331,7 +331,7 @@ Changes in <code>web.config</code>:
 {% endraw %}
 {% endhighlight %}
 
-Build your Umbraco project and/or restart your application and you should now see an extra tree node <code>Views</code> in <code>Settings</code> section
+Build your Umbraco project and/or restart your application and you should now see an extra tree node <code>Views</code> in <code>Settings</code> section.
 
 ![Editing your mvc views](/images/posts/hacking-mvc-views-folder.png)
 
