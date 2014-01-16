@@ -9,7 +9,7 @@ tags: [umbraco, vsnet, backoffice]
 In my [last post](http://www.netaddicts.be/articles/a-developers-take-on-sending-emails-in-umbraco/), I talked about a single caveat with using "real" mvc views... those can't be edited via the Umbraco backoffice. 
 I did some digging to find out whether there's a way to do it anyway. After all, it can't be that hard to recursively enumerate all <code>.cshtml</code> (or <code>.vbhtml</code>) files in the standard mvc views location folder <code>~/Views</code> and have those edited.
 
-For example, suppose you've got a controller <code>SubscriptionSurfaceController</code> with an action <code>SubscriptionForm<code> as in following code snippet
+For example, suppose you've got a controller <code>SubscriptionSurfaceController</code> with an action <code>SubscriptionForm</code> as in following code snippet
 
 {% highlight c# linenos %}
 {% raw %}
@@ -45,7 +45,7 @@ And to make it even more Umbraco-ish, put your view in the default Umbraco views
 
 {% highlight c# linenos %}
 {% raw %}
-return View("~/Views/FolderA/SubfolderB/MyView.cshtml", new SubscriptionViewModel());
+return View("~/Views/MyView.cshtml", new SubscriptionViewModel());
 {% endraw %}
 {% endhighlight %}
 
@@ -284,16 +284,16 @@ namespace Project.Business
 
 Compared to the original <code>loadTemplates</code> class, I've:
 
-* Made some changes to the Tree attribute settings to make sure it wouldn't collide with an existing alias. We still want the original "templates" to be available 
-* Added a new case ".cshtml" in RenderTemplateFolderItems() function
-* Put some code in comments in function RenderTemplates() as otherwise it wouldn't compile because of the use of internal functions. Again, not a biggie for me as I'm always in Mvc rendering mode
+* Made some changes to the <code>Tree</code> attribute settings to make sure it wouldn't collide with an existing alias. We still want the original templates to be available under 'Templates'
+* Added a new case <code>".cshtml"</code> in <code>RenderTemplateFolderItems()</code> function
+* Put some code in comments in function <code>RenderTemplates()</code> as otherwise it wouldn't compile because of the use of internal functions. Again, not a biggie for me as I'm always in Mvc rendering mode
 
 And then I made some configuration changes to both <code>umbracoSettings.config</code> and <code>web.config</code>.
 
-Changes in <code>umbracoSettings.config</code>:
+Changes in <code>umbracoSettings.config</code>
 
-* Add /views folder in <scriptFolderPath> tag
-* Add extra tag <enableTemplateFolders>true</enableTemplateFolders> under <templates> tag
+* Add <code>/views</code> folder in <code>scriptFolderPath</code> tag
+* Add extra tag <code>enableTemplateFolders</code> with value true under <code>templates</code> tag
 
 {% highlight xml linenos %}
 {% raw %}
@@ -320,7 +320,7 @@ Changes in <code>umbracoSettings.config</code>:
 
 Changes in <code>web.config</code>:
 
-* Add a new application settings umbracoMasterPagesPath
+* Add a new application settings <code>umbracoMasterPagesPath</code>
 
 {% highlight xml linenos %}
 {% raw %}
