@@ -10,7 +10,7 @@ No Google Maps datatype support without first installing Umbraco v7 of course. I
 
 Once you've got that covered, have a look at the <code>~/Umbraco/Views/PropertyEditors</code> folder of your installation. 
 
-'[PropertyEditors folder in ~/Umbraco/Views](/images/posts/googe-maps-folder-in-property-editors-folder.png)
+![PropertyEditors folder in ~/Umbraco/Views](/images/posts/googe-maps-folder-in-property-editors-folder.png)
 
 Also noticed the <code>googlemaps</code> folder? Does that mean we get "Google Maps" property editor support out of the box. No! And if you get it working, it won't exactly be a "Google Maps" datatype you know from similar Google Maps datatype packages you may find on the [interweb](http://our.umbraco.org/search?q=Google%20maps&content=project,). Even worse, it's not actually built to be a fully fledged "Google Maps" property editor. It's been more of a proof of concept and been shown on several Umbraco festivals to give a nice intro on the endless possibilities/opportunities in working with AngularJs.
 
@@ -321,7 +321,7 @@ var mapOptions = {
 
 Restart your application (this is really, really important for changes to picked up again!) and optionally clear your cache (And you may do so a few times before changes actually show up). Enter the backoffice and you should now have your "Google Maps" datatype working!
 
-<iframe width="800" height="600" src="http://screencast.com/t/JOcOttjQI" frameborder="0" allowfullscreen></iframe>
+[Here's a screencast of the Google Maps property editor in action](http://screencast.com/t/JOcOttjQI)
 
 Big thanks to Per for writing the initial code, I just did what needed be done to make it act as a working Google Maps property editor.
 
