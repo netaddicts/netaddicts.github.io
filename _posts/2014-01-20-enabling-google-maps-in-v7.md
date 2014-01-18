@@ -6,7 +6,7 @@ category: articles
 tags: [umbraco, v7, propertyeditors, google, maps]
 ---
 
-No Google Maps datatype support without first installing Umbraco v7 of course. If you haven't done so, it now time to perform a Umbraco v7 installation. And use whatever you prefer. Download either from [Our, current release is v7.0.1](http://our.umbraco.org/contribute/releases/701) and use WebMatrix to open up your local copy or start a new Visual Studio.net project and get Umbraco through Nuget. I've also installed a starter kit to have some content already in place.
+No Google Maps datatype support without first installing Umbraco v7 of course. If you haven't done so, it now time to perform a Umbraco v7 installation. And use whatever you prefer. Download either from [Our - current release is v7.0.1](http://our.umbraco.org/contribute/releases/701) and use WebMatrix to open up your local copy or start a new Visual Studio.net project and get Umbraco through Nuget. I've also installed a starter kit to have some content already in place.
 
 Once you've got that covered, have a look at the <code>~/Umbraco/Views/PropertyEditors</code> folder of your installation. 
 
@@ -28,7 +28,7 @@ Hey, wait, there's only one html file in the <code>~/Umbraco/Views/PropertyEdito
 
 And where do I find the <code>Umbraco.PropertyEditors.GoogleMapsController</code>?
 
-Well, Umbraco centralizes all controller javascript into a single file, which can be found in <code>~/Umbraco/Js folder</code> (<code>umbraco.controller.js</code>). Below is a snippet we need to enable "Google Maps" support.
+Well, Umbraco centralizes all controller javascript into a single file, which can be found in <code>~/Umbraco/Js</code> folder (<code>umbraco.controller.js</code>). Below is a snippet from that file.
 
 {% highlight javascript linenos %}
 {% raw %}
@@ -119,7 +119,7 @@ angular.module("umbraco")
 {% endraw %}
 {% endhighlight %}
 
-So, we've got our html and javascript file, why don't we have a Google Maps property editor available when creating a new datatype? Well, there's probably good reasons for that, and pretty sure the fact that this is just sample code is one of those reasons. I guess it's up to the community to create a property editor that actually works ;)
+So, we've got our html and javascript file, why don't we have a "Google Maps" property editor available when creating a new datatype? Well, there's probably good reasons for that, and pretty sure the fact that this is just sample code is one of those reasons. I guess it's up to the community to create a property editor that actually works ;)
 
 ##Enable Google Maps property editor, take 1
 
@@ -151,7 +151,7 @@ Restart your application so Umbraco can pick up your new <code>package.manifest<
 
 There's a few reasons why it doesn't work yet:
 
-* We don't have a model value yet ($scope.model.value), so next javascript statements will yield invalid code and throw errors
+* We don't have a model value yet (<code>$scope.model.value</code>), so next javascript statements will yield invalid code and throw errors
 
 {% highlight javascript linenos %}
 {% raw %}
@@ -160,7 +160,7 @@ var latLng = new google.maps.LatLng(valueArray[0], valueArray[1]);
 {% endraw %}
 {% endhighlight %}
 
-* We don't have any configuration ($scope.model.config), so next javascript statements will fail as well
+* We don't have any configuration (<code>$scope.model.config</code>), so next javascript statements will fail as well
 
 {% highlight javascript linenos %}
 {% raw %}
@@ -309,17 +309,19 @@ if ($scope.model.value === '') {
 
 {% highlight javascript linenos %}
 {% raw %}
-if ($scope.model.value === '') {
-	$scope.model.value = '51.226523,2.923182';
-}
+var mapOptions = {
+    zoom: 12,
+    center: latLng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+};
 {% endraw %}
 {% endhighlight %}
 
-* Removed some obsolete code (Such as using the dialogService to pick a media item, we won't be using it here) 
+* Removed some obsolete code (Such as using the [<code>dialogService</code>](http://umbraco.github.io/Belle/#/api/umbraco.services.dialogService) to pick a media item, we won't be using it here) 
 
 Restart your application (this is really, really important for changes to picked up again!) and optionally clear your cache (And you may do so a few times before changes actually show up). Enter the backoffice and you should now have your "Google Maps" datatype working!
 
-<iframe width="420" height="315" src="http://screencast.com/t/JOcOttjQI" frameborder="0" allowfullscreen></iframe>
+<iframe width="800" height="600" src="http://screencast.com/t/JOcOttjQI" frameborder="0" allowfullscreen></iframe>
 
 Big thanks to Per for writing the initial code, I just did what needed be done to make it act as a working Google Maps property editor.
 
