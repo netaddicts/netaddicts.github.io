@@ -2,7 +2,7 @@
 layout: post
 title: Editing mvc views in the Umbraco backoffice
 description: A follow up on my previous blog post on ActionMailer introduces a hacky way to edit mvc views from the Umbraco backoffice.
-category: articles
+category: umbraco
 tags: [umbraco, vsnet, backoffice]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: UmbracoHelper.L10N()
 description: "A useful UmbracoHelper extension method to create dictionary items 'on the fly'"
-category: articles
+category: umbraco
 tags: [umbraco, translation, localization, l10n]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Umbraco v7 XPathDropdownList aka Docr
 description: "A quick intro on how to build a VERY simplified version of the XPathDropdownList"
-category: articles
+category: umbraco
 tags: [umbraco, v7, propertyeditors]
 ---
 

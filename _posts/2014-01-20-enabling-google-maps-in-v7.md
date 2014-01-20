@@ -2,7 +2,7 @@
 layout: post
 title: Enabling Google Maps datatype in Umbraco v7
 description: A few blog posts ago, I promised to show you how easy it is to enable Google Maps datatype support in V7. Here's how.
-category: articles
+category: umbraco
 tags: [umbraco, v7, propertyeditors, google, maps]
 ---
 

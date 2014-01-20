@@ -2,7 +2,7 @@
 layout: post
 title: A developer's take on sending emails in Umbraco
 description: As an Umbraco developer spending most (if not all) time in vs.net, I prefer to use ActionMailer. I'll show how easy it is to integrate this Nuget package into your new and existing Umbraco solutions.
-category: articles
+category: umbraco
 tags: [umbraco, nuget, actionmailer, vsnet]
 ---
 
