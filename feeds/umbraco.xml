@@ -8,7 +8,7 @@ layout: none
 		<description>Blog posts categorized as 'Umbraco'</description>
 		<link>{{ site.url }}</link>
 		<atom:link href="{{ site.url }}/feeds/umbraco.xml" rel="self" type="application/rss+xml" />
-		{% for post in site.categories.umbraco limit:10 %}
+		{% for post in site.category.umbraco limit:10 %}
 			<item>
 				<title>{{ post.title | xml_escape }}</title>
 				<description>{{ post.description | xml_escape }} {{ post.content | xml_escape }}</description>
