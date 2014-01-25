@@ -15,4 +15,6 @@ Prerequisites:
 
 <iframe src="http://www.screenr.com/embed/oT7N" width="650" height="396" frameborder="0"></iframe>
 
+If your map doesn't show up on first use (As can be seen in screencast), be sure to reload the page using ctrl+f5!
+
 Happy watching!
