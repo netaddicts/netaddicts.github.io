@@ -1,10 +1,12 @@
 ---
 layout: post
 title: Google Maps datatype in Umbraco v7 - Adding a property editor value converter to return a strongly typed object
-description: Following up on my last blog post on enabling Google Maps property editor and driven by community comments received (Yes, looking at you [Warren](https://twitter.com/warrenbuckley/status/426735250606391296)), I added support for returning a strongly typed object from my property editor for use in Razor views
+description: Following up on my last blog post on enabling Google Maps property editor and driven by community comments received, I added support for returning a strongly typed object from my property editor for use in Razor views
 category: umbraco
 tags: [umbraco, v7, propertyeditors, google, maps, places, editorvalueconverter]
 ---
+
+Yes, I'm looking at you [Warren](https://twitter.com/warrenbuckley/status/426735250606391296)
 
 Adding support for returning strongly types objects is dead simple. Just make sure to create a class that inherits from <code>PropertyValueConverterBase</code> and override the required functions.
 
